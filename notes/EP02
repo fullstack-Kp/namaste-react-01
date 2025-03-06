@@ -1,0 +1,79 @@
+How can we make our React project production ready?
+
+We have multiple packages which can make our react app fast.
+
+1. npm: It is use to manage packages. 
+
+2. How can make our project to use npm?
+  1st use comman npm init  and after this it will ask for some questions once we answer that it will give us one file called package.json. package.json is the configuration file for our npm. It keeps track of what version of that library we are using in our app.
+
+
+
+3. Bundler: It help us to bundle our code. We have bundler like webpack, vite , parcel.
+            A bundler is a tool that takes multiple JavaScript files, along with assets like CSS, images, and other dependencies, and combines them into a single optimized file (or a few files) for efficient loading in the browser. It helps in improving performance by reducing HTTP requests, optimizing code, and enabling features like tree shaking and code splitting.
+
+Popular Bundlers:
+Webpack – Most widely used, supports loaders and plugins.
+Parcel – Zero-config bundler with fast builds. 
+Vite – Uses ES modules for faster development.
+
+#Parcel does so many things for us. 
+  1. It create dev build for us.
+  2. It host our application to local server.
+  3. It automatically updates our changes in the browser that is called HMR stands for HOT Module Replacement.
+  4. Parcel does image optimization for us also.
+  5. Minification of file.
+  6. Bundling
+  7. Compress file.
+  8. Code Splitting
+  9. Differential Bundling
+  10. Consistent hashing
+  11. It gives us facility to host our app in https.
+  12. Tree shaking : It removes unwanted code from our app.
+
+  Parcel does this by using file watching algorithm using c++.
+  Parcel does caching for faster build.: Faster Build.
+  know more about parcel by learing its documentations.
+
+In our app we can install 2 types of depencies 1. Dev dependency 2. Normal Dependency
+Dev Dependency: It is use in developement phase.
+Normal Dependency: get use in prod also.
+
+4. What is Package.json?
+   package.json is the configuration file for our npm. It keeps track of what version of that library we are using in our app.
+
+5. What is package-lock.json?
+   It keeps the track of what the exact version we are using in our app.
+
+6. What is node_modules?
+   It contains all the code which we fetch from npm.
+
+7. What is transitive dependency?
+   A transitive dependency is a dependency that your project does not directly depend on but is required by one of your direct dependencies.
+
+8. .gitignore: If we don't want to push some files to git or production we can add that in git ignore.
+
+9. To regenerate our app using parcel we need to use command. "npx parcel index.html"
+
+   "npx parcel index.html" : after executing this command our app will start hosting on server and as well as 2 folder will get created in our project. 1. dist and 2. .parcel-cache
+
+   npx : Means executing our package.
+   npm: for installation
+
+   once we write "npx parcel index.html" this command parcel takes index.html as source and create a development build and host that in localhost.
+
+10. Earlier we were using cdn link to bring react in our project but that is not a feasible solution because its a expensive process. 
+
+11. Now we will install react in our app using npm. using npm install react. and npm i reac-dom.
+once we installed that then we will import that in our App.js file, using "import React from 'react'. After importing we will get one error which is 
+"Browser scripts cannot have imports or exports." This error tells us that browser script can not have import or exports because it is thinking that in our index.html file we have a this script tag <script src="./App.js">. which is a normal JS script tag but we need to tell no it is not a normal script tag. It is a module by adding type = "module" in our script tag.
+So, now our script tag will look like this <script type="module" src="./App.js"> 
+
+12. How to create Production build?
+    we need to run command npx parcel build index.html and we need to remove main from package.json because it will conflict with index.html.
+  
+
+13. How to make our app compatible with old browsers?
+    For this we use Browser List in our package.json like this "browserslist" : ["last 10 chrome version"] and if we write like this "browserslist" : ["last 2 version"] It will work on all differnt type of browser of last 2 versions. 
+   
+

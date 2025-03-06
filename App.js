@@ -1,3 +1,6 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client';
+
 //    To create a h1 element in react we use React.createReact() method which takes 3 parameter 1. element name, 2.an object 3. the content which we want to use in React 
 // here we have {} : This is use for giving attribute to our tag , we can give multiple attributes..
 const heading = React.createElement(
